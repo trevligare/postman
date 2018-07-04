@@ -1,0 +1,122 @@
+{
+	"info": {
+		"_postman_id": "159f33d3-dc5c-4b7e-acdb-a4596b62ca7e",
+		"name": "Reports API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Submit nice report",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ac5047e4-30f2-443d-8603-4c8e57d82d20",
+						"type": "text/javascript",
+						"exec": [
+							"var testname = pm.variables.get(\"testname\");",
+							"",
+							"pm.test(testname, function () {",
+							"    var status_code = pm.variables.get(\"status_code\");",
+							"    pm.expect(pm.response.code.toString()).to.be.oneOf([status_code]);",
+							"});",
+							"var ms = pm.variables.get(\"ms\");",
+							"pm.test(`Response time is less than ${ms}ms`, function () {",
+							"    var msI = parseInt(ms);",
+							"    pm.expect(pm.response.responseTime).to.be.below(msI);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Encoding",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"value": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"token\": \"{{token}}\",\n\t\"reporter\": \"{{reporter}}\",\n\t\"classification\": \"{{classification}}\",\n\t\"text\": \"{{text}}\"\t\n}"
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/reports",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"reports"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get My Reports",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bc9d128d-bcd1-4f57-8deb-47fbe7a426f6",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Encoding",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"value": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"token\": \"{{token}}\",\n\t\"reporter\": \"{{reporter}}\",\n\t\"nice\": \"{{nice}}\",\n\t\"text\": \"{{text}}\"\t\n}"
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/reports?token={{token}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"reports"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

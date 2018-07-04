@@ -1,0 +1,82 @@
+[
+  {
+    "testname": "Accepts label reports",
+    "token": "3d20e58a-42ce-4ee5-969f-15c58d5ff944",
+    "reporter": "2e480018-5e86-460a-aae4-86779b4ce37e",
+    "label": "nothing",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    "status_code": "201"
+  },
+  {
+    "testname": "Accepts abusive reports",
+    "token": "3d20e58a-42ce-4ee5-969f-15c58d5ff944",
+    "reporter": "2e480018-5e86-460a-aae4-86779b4ce37e",
+    "label": "threat",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    "status_code": "201"
+  },
+  {
+    "testname": "Rejects reports missing all attributes",
+    "token": "",
+    "reporter": "",
+    "label": "",
+    "text": "",
+    "status_code": "400"
+  },
+  {
+    "testname": "Rejects reports missing token attribute",
+    "token": "",
+    "reporter": "2e480018-5e86-460a-aae4-86779b4ce37e",
+    "label": "nothing",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    "status_code": "400"
+  },
+  {
+    "testname": "Notifies reports with bad token as forbidden",
+    "token": "blarg",
+    "reporter": "2e480018-5e86-460a-aae4-86779b4ce37e",
+    "label": "nothing",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    "status_code": "403"
+  },
+  {
+    "testname": "Rejects reports missing reporter attribute",
+    "token": "3d20e58a-42ce-4ee5-969f-15c58d5ff944",
+    "reporter": "",
+    "label": "nothing",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    "status_code": "400"
+  },
+  {
+    "testname": "Rejects reports missing label attribute",
+    "token": "3d20e58a-42ce-4ee5-969f-15c58d5ff944",
+    "reporter": "2e480018-5e86-460a-aae4-86779b4ce37e",
+    "label": "",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    "status_code": "400"
+  },
+  {
+    "testname": "Rejects reports missing text attribute",
+    "token": "3d20e58a-42ce-4ee5-969f-15c58d5ff944",
+    "reporter": "2e480018-5e86-460a-aae4-86779b4ce37e",
+    "label": "nothing",
+    "text": "",
+    "status_code": "400"
+  },
+  {
+    "testname": "Rejects reports with bad label attribute (-1)",
+    "token": "3d20e58a-42ce-4ee5-969f-15c58d5ff944",
+    "reporter": "2e480018-5e86-460a-aae4-86779b4ce37e",
+    "label": "-1",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    "status_code": "400"
+  },
+  {
+    "testname": "Rejects reports with bad label attribute ('blarg')",
+    "token": "3d20e58a-42ce-4ee5-969f-15c58d5ff944",
+    "reporter": "2e480018-5e86-460a-aae4-86779b4ce37e",
+    "label": "blarg",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    "status_code": "400"
+  }
+]
